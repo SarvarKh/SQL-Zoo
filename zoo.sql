@@ -52,6 +52,57 @@ FROM world
   WHERE name LIKE '%x%'
 
 
+-- 4-Task solution:
+SELECT name 
+FROM world
+  WHERE name LIKE '%land'
+
+
+-- 5-Task solution:
+SELECT name 
+FROM world
+  WHERE name LIKE 'C%' 
+  AND name LIKE '%ia'
+
+
+-- 6-Task solution:
+SELECT name 
+FROM world
+  WHERE name LIKE '%oo%'
+
+
+-- 7-Task solution:
+SELECT name 
+FROM world
+  WHERE name LIKE '%a%a%a%'
+
+
+-- 8-Task solution:
+SELECT name 
+FROM world
+ WHERE name LIKE '_t%'
+ORDER BY name
+
+
+-- 9-Task solution:
+SELECT name 
+FROM world
+ WHERE name LIKE '%o__o%'
+
+
+-- 10-Task solution:
+SELECT name 
+FROM world
+ WHERE name LIKE '____'
+
+
+-- 11-Task solution:
+SELECT name
+  FROM world
+ WHERE name LIKE capital
+
+
+
 /*
 ***************************************************************
 **                                                           **
