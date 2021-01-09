@@ -32,14 +32,20 @@ ORDER BY name
 
 
 -- 4-Task solution:
+SELECT name, population
+FROM world
+WHERE population > (SELECT population FROM world WHERE name = 'Canada')
+  AND population < (SELECT population FROM world WHERE name = 'Poland')
 
 
+-- 5-Task solution:
+SELECT name,
+       concat(ROUND(100*population/(SELECT population FROM world WHERE name = 'Germany')), '%')
+FROM world
+WHERE continent = 'Europe'
 
--- 3-Task solution:
 
-
-
--- 3-Task solution:
+-- 6-Task solution:
 
 
 
