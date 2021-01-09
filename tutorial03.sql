@@ -46,7 +46,11 @@ WHERE continent = 'Europe'
 
 
 -- 6-Task solution:
-
+SELECT name
+FROM world
+WHERE gdp > (SELECT MAX(gdp)
+               FROM world
+              WHERE continent = 'Europe')
 
 
 -- 3-Task solution:
