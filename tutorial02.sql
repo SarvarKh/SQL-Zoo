@@ -98,25 +98,3 @@ WHERE capital LIKE concat(name, '%') AND NOT capital = name
 SELECT name, REPLACE(capital, name, '') AS ext
 FROM world
 WHERE capital LIKE concat(name, '_%')
-
-
-
-/*
-***************************************************************
-**                                                           **
-***** *****            TUTORIAL - 3            ***** *****   **
-**                                                           **
-***************************************************************
-*/
-
--- 1-Task solution:
-
-
-
--- 2-Task solution:
-
-
-
--- 3-Task solution:
-
-
