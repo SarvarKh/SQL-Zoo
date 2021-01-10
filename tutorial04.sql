@@ -53,10 +53,36 @@ WHERE gdp > (SELECT MAX(gdp)
               WHERE continent = 'Europe')
 
 
--- 3-Task solution:
+-- 7-Task solution:
+SELECT continent, name, area
+FROM world x
+  WHERE area >= ALL
+    (SELECT area FROM world y
+        WHERE y.continent=x.continent
+          AND area >0)
 
 
 
--- 3-Task solution:
+-- 8-Task solution:
+SELECT continent, MIN(name) AS name
+FROM world
+GROUP BY continent
 
 
+-- 9-Task solution:
+SELECT name, continent, population
+FROM world x
+WHERE 25000000 >= ALL(SELECT population
+                        FROM world y
+                       WHERE x.continent = y.continent
+                         AND y.population>0)
+  
+
+
+-- 10-Task solution:
+SELECT name, continent
+FROM world x
+WHERE population > ALL(SELECT population*3
+                         FROM world y
+                        WHERE x.continent = y.continent
+                          AND y.name != x.name)
