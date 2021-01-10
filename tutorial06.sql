@@ -37,3 +37,16 @@ SELECT player, teamid, coach, gtime
 
 
  -- 6-Task solution:
+ SELECT mdate, teamname
+FROM game JOIN eteam ON (team1=eteam.id)
+WHERE coach = 'Fernando Santos'
+
+
+ -- 7-Task solution:
+ SELECT player
+FROM goal JOIN game ON (matchid=id)
+WHERE stadium = 'National Stadium, Warsaw'
+
+
+ -- 8-Task solution:
+ 
