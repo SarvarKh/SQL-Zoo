@@ -9,54 +9,89 @@
 */
 
 -- 1-Task solution:
-SELECT name 
-FROM world
-  WHERE population >
-     (SELECT population FROM world
-      WHERE name='Russia')
+SELECT yr, subject, winner
+  FROM nobel
+ WHERE yr = 1950
 
 
--- 2-Task solution:
-SELECT name
-FROM world
-WHERE continent = 'Europe'
-  AND gdp/population > (SELECT gdp/population FROM world WHERE name = 'United Kingdom')
+ -- 2-Task solution:
+ SELECT winner
+  FROM nobel
+ WHERE yr = 1962
+   AND subject = 'Literature'
 
 
--- 3-Task solution:
-SELECT name, continent
-FROM world
-WHERE continent = (SELECT continent FROM world WHERE name = 'Argentina')
-  OR continent = (SELECT continent FROM world WHERE name = 'Australia')
-ORDER BY name
+ -- 3-Task solution:
+SELECT yr, subject
+FROM nobel
+WHERE winner = 'Albert Einstein'
+
+ 
+ -- 4-Task solution:
+ SELECT winner
+FROM nobel
+WHERE subject = 'Peace' AND yr >= 2000
+
+ 
+ -- 5-Task solution:
+ SELECT yr, subject, winner
+FROM nobel
+WHERE subject = 'Literature' AND yr BETWEEN 1980 AND 1989
 
 
--- 4-Task solution:
-SELECT name, population
-FROM world
-WHERE population > (SELECT population FROM world WHERE name = 'Canada')
-  AND population < (SELECT population FROM world WHERE name = 'Poland')
+ -- 6-Task solution:
+ SELECT * 
+FROM nobel
+ WHERE winner IN ('Theodore Roosevelt',
+                  'Woodrow Wilson',
+                  'Jimmy Carter',
+                  'Barack Obama')
 
 
--- 5-Task solution:
-SELECT name,
-       concat(ROUND(100*population/(SELECT population FROM world WHERE name = 'Germany')), '%')
-FROM world
-WHERE continent = 'Europe'
+ -- 7-Task solution:
+ SELECT winner
+FROM nobel
+WHERE winner LIKE 'John%'
 
 
--- 6-Task solution:
-SELECT name
-FROM world
-WHERE gdp > (SELECT MAX(gdp)
-               FROM world
-              WHERE continent = 'Europe')
+ -- 8-Task solution:
+ SELECT yr, subject, winner
+FROM nobel
+WHERE (subject = 'Physics' AND yr = 1980) OR (subject = 'Chemistry' AND yr = 1984)
 
 
--- 3-Task solution:
+ -- 9-Task solution:
+ SELECT yr, subject, winner
+FROM nobel
+WHERE yr = 1980 AND NOT subject IN ('Chemistry ', 'Medicine')
 
 
+ -- 10-Task solution:
+ SELECT yr, subject, winner
+FROM nobel
+WHERE (subject = 'Medicine' AND yr < 1910) OR (subject = 'Literature' AND yr >= 2004)
 
--- 3-Task solution:
+
+ -- 11-Task solution:
+ SELECT *
+FROM nobel
+WHERE winner = 'PETER GRÜNBERG'
 
 
+ -- 12-Task solution:
+ SELECT *
+FROM nobel
+WHERE winner = 'EUGENE O''NEILL'
+
+
+-- 13-Task solution:
+SELECT winner, yr, subject
+FROM nobel
+WHERE winner LIKE 'Sir%'
+
+
+-- 14-Task solution:
+SELECT winner, subject
+  FROM nobel
+ WHERE yr=1984
+ ORDER BY subject IN ('Physics','Chemistry'), subject, winner
