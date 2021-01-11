@@ -49,4 +49,12 @@ WHERE stadium = 'National Stadium, Warsaw'
 
 
  -- 8-Task solution:
+ SELECT DISTINCT player
+  FROM game JOIN goal ON matchid = id 
+    WHERE (team1='GER' OR team2='GER')
+      AND game.id = goal.matchid
+      AND goal.teamid != 'GER'
+
+
+ -- 9-Task solution:
  
