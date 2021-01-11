@@ -91,6 +91,3 @@ SELECT mdate, team1,
   FROM game LEFT JOIN goal ON matchid = id
   GROUP BY mdate, team1, team2
   ORDER BY mdate, matchid, team1, team2
-
-
--- 14-Task solution:
