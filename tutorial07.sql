@@ -76,3 +76,46 @@ WHERE yr = 1962 AND ord = 1
 
 
 -- 11-Task solution:
+SELECT yr,COUNT(title) FROM
+  movie JOIN casting ON movie.id=movieid
+        JOIN actor   ON actorid=actor.id
+WHERE name='Rock Hudson'
+GROUP BY yr
+HAVING COUNT(title) > 2
+
+
+-- 12-Task solution:
+SELECT title, name
+FROM movie JOIN casting ON (movieid = movie.id
+                            AND ord=1)
+           JOIN actor ON (actorid=actor.id)
+WHERE movie.id IN (
+      SELECT movieid FROM casting
+         WHERE actorid IN (
+           SELECT id FROM actor
+              WHERE name='Julie Andrews'))
+
+
+-- 13-Task solution:
+SELECT name
+FROM actor
+  JOIN casting ON (id = actorid AND (SELECT COUNT(ord) FROM casting WHERE actorid = actor.id AND ord=1)>=15)
+GROUP BY name
+
+
+-- 14-Task solution:
+SELECT title, COUNT(actorid)
+FROM movie JOIN casting ON (movie.id = movieid)
+WHERE yr = 1978
+GROUP BY title
+ORDER BY COUNT(actorid) DESC, title
+
+
+-- 15-Task solution:
+SELECT name
+FROM actor JOIN casting ON (actor.id = actorid)
+WHERE movieid IN
+  (SELECT id FROM movie WHERE title IN
+     (SELECT title FROM movie JOIN casting ON movie.id = movieid WHERE actorid IN
+       (SELECT id FROM actor WHERE name = 'Art Garfunkel')))
+AND name != 'Art Garfunkel'
