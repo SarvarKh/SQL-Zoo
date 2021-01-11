@@ -57,4 +57,40 @@ WHERE stadium = 'National Stadium, Warsaw'
 
 
  -- 9-Task solution:
- 
+ SELECT teamname, COUNT(player)
+  FROM eteam JOIN goal ON id=teamid
+ GROUP BY teamname
+
+
+-- 10-Task solution:
+SELECT stadium, COUNT(player)
+FROM game JOIN goal ON id=matchid
+ GROUP BY stadium
+
+
+-- 11-Task solution:
+SELECT id, mdate, COUNT(*)
+  FROM game JOIN goal ON id = matchid
+ WHERE (team1 = 'POL' OR team2 = 'POL')
+GROUP BY id, mdate
+
+
+-- 12-Task solution:
+SELECT id, mdate, COUNT(*)
+FROM game JOIN goal ON id = matchid
+WHERE teamid = 'GER'
+GROUP BY id, mdate
+
+
+-- 13-Task solution:
+SELECT mdate, team1,
+  SUM(CASE WHEN teamid = team1 THEN 1 ELSE 0 END) AS score1,
+  team2,
+  SUM(CASE WHEN teamid = team2 THEN 1 ELSE 0 END) AS score2
+  
+  FROM game LEFT JOIN goal ON matchid = id
+  GROUP BY mdate, team1, team2
+  ORDER BY mdate, matchid, team1, team2
+
+
+-- 14-Task solution:
