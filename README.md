@@ -56,7 +56,7 @@ Please Note that you must have Git installed on your PC, this can be done [here]
 
 - GitHub: [@githubhandle](https://github.com/SarvarKh)
 - Twitter: [@twitterhandle](https://twitter.com/KhalimovSarvar)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/sarvar-khalimov/)
+- LinkedIn: [sarvar-khalimov](https://www.linkedin.com/in/sarvar-khalimov/)
 
 ## 🤝 Contributing
 
