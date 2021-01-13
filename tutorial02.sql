@@ -74,3 +74,17 @@ SELECT name,
 
 
  -- 12-Task solution:
+ SELECT name, capital
+FROM world
+WHERE LEFT(name,1) = LEFT(capital,1)
+AND name != capital
+
+
+ -- 13-Task solution:
+ SELECT name
+   FROM world
+WHERE name LIKE '%e%' and 
+      name LIKE '%i%' and
+      name LIKE '%o%' and
+      name LIKE '%u%'
+  AND name NOT LIKE '% %'
