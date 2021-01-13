@@ -1,7 +1,7 @@
 # SQL zoo solutions 
 > This is collection of solutions from tutorial 0 - 9 for sqlzoo.net.
 
-## For original tasks and theri descriptions
+## For original tasks and their descriptions
 Visit [SQL-ZOO website](https://sqlzoo.net/wiki/SQL_Tutorial)
 
 ## Content
